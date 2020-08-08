@@ -17,9 +17,9 @@ router.get("/", function(req, res) {
   
   router.post("/api/burgers", function(req, res) {
     burger.create([
-      "name", "sleepy"
+      "name"
     ], [
-      req.body.name, req.body.sleepy
+      req.body.name
     ], function(result) {
       // Send back the ID of the new quote
       res.json({ id: result.insertId });
@@ -32,7 +32,7 @@ router.get("/", function(req, res) {
     console.log("condition", condition);
   
     burger.update({
-      sleepy: req.body.sleepy
+      devour: req.body.devour
     }, condition, function(result) {
       if (result.changedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404
@@ -42,6 +42,14 @@ router.get("/", function(req, res) {
       }
     });
   });
-
+  router.delete("/api/burgers/:id", function(req, res) {
+    var condition = "id = " + req.params.id;
+    burger.delete(condition, function(result) {
+      if (result.affectedRows === 0) {
+        return res.status(404).end();
+      }
+      res.status(200).end();
+    });
+  });
 
 module.exports = router;
