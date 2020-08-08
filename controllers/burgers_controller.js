@@ -6,7 +6,7 @@ var router = express.Router();
 var burger = require("../models/burger.js");
 
 router.get("/", function(req, res) {
-    burger.all(function(data) {
+    burger.selectAll(function(data) {
       var hbsObject = {
         burgers: data
       };
@@ -16,7 +16,7 @@ router.get("/", function(req, res) {
   });
   
   router.post("/api/burgers", function(req, res) {
-    burger.create([
+    burger.insertOne([
       "name"
     ], [
       req.body.name
@@ -29,10 +29,10 @@ router.get("/", function(req, res) {
   router.put("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
-    console.log("condition", condition);
+    console.log("condition ", condition);
   
-    burger.update({
-      devour: req.body.devour
+    burger.updateOne({
+      devoured: req.body.devoured
     }, condition, function(result) {
       if (result.changedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404
@@ -42,6 +42,7 @@ router.get("/", function(req, res) {
       }
     });
   });
+  
   router.delete("/api/burgers/:id", function(req, res) {
     var condition = "id = " + req.params.id;
     burger.delete(condition, function(result) {

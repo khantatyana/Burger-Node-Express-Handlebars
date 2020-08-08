@@ -1,28 +1,33 @@
 <h1>Eat-Da-Burger!</h1>
-<img src="../public/assets/burger.jpeg" alt="burger">
+<img src="../public/assets/burger.jpeg" alt="burger" width="500" style="vertical-align:middle">
+<div class="grid-container">
+  <div class="col-md-6">
+    <h2>Burger List:</h2>
+    <ul class="list-group">
+      <li class="list-group-item">
+        {{#each burger}}
+          {{#unless devour}}
+            {{> burgers/burger-block devour=true}}
+          {{/unless}}
+        {{/each}}
+      </li>
+    </ul>
+  </div>
 
-<div class="col-lg-6">
-  <h2>Burger List:</h2>
-  <ul>
-    {{#each burger}}
-      {{#unless devour}}
-        {{> burgers/burger-block devour=true}}
-      {{/unless}}
-    {{/each}}
-  </ul>
+  <div class="col-md-6">
+    <h2>Devoured Burger List:</h2>
+    <ul class="list-group">
+      <li class="list-group-item disabled" aria-disabled="true">
+        {{#each burger}}
+          {{#if devour}}
+            {{> burgers/burger-delete devour=false}}
+          {{/if}}
+        {{/each}}
+      </li>
+    </ul>
+  </div>
 </div>
 
-<div class="col-lg-6">
-  <h2>Devoured Burger List:</h2>
-  <ul>
-    {{#each burger}}
-      {{#if devour}}
-        {{> burgers/burger-delete devour=false}}
-        
-      {{/if}}
-    {{/each}}
-  </ul>
-</div>
 
 <form class="create-form">
 
@@ -33,5 +38,5 @@
 
   <button type="submit">Add Burger</button>
   <br><br><br>
-  <p>Enter a burger you want to eat. Click the Submit button.</p>
+  <p>Enter a burger you want to eat. Click the Add Burger button.</p>
 </form>
