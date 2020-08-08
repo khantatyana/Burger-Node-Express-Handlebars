@@ -1,42 +1,42 @@
 <h1>Eat-Da-Burger!</h1>
-<img src="../public/assets/burger.jpeg" alt="burger" width="500" style="vertical-align:middle">
-<div class="grid-container">
-  <div class="col-md-6">
-    <h2>Burger List:</h2>
-    <ul class="list-group">
-      <li class="list-group-item">
-        {{#each burger}}
-          {{#unless devour}}
-            {{> burgers/burger-block devour=true}}
-          {{/unless}}
-        {{/each}}
-      </li>
-    </ul>
-  </div>
-
-  <div class="col-md-6">
-    <h2>Devoured Burger List:</h2>
-    <ul class="list-group">
-      <li class="list-group-item disabled" aria-disabled="true">
-        {{#each burger}}
-          {{#if devour}}
-            {{> burgers/burger-delete devour=false}}
-          {{/if}}
-        {{/each}}
-      </li>
-    </ul>
-  </div>
-</div>
-
+<img src="/assets/burger.jpeg" alt="burger" width="200">
 
 <form class="create-form">
 
   <div class="form-group">
     <label for="burger">Burger Name:</label>
-    <input type="text" id="burg" name="name">
+    <input type="text" id="burg" name="burger_name">
   </div>
 
   <button type="submit">Add Burger</button>
   <br><br><br>
   <p>Enter a burger you want to eat. Click the Add Burger button.</p>
 </form>
+
+<div class="grid-container">
+  <div class="col-md-6">
+    <h2>Burger List:</h2>
+    <ul class="list-group">
+
+      {{#each burgers}}
+        {{#unless devoured}}
+          {{> burgers/burger-block devoured=true}}
+        {{/unless}}
+      {{/each}}
+
+    </ul>
+  </div>
+
+  <div class="col-md-6">
+    <h2>Devoured Burger List:</h2>
+    <ul class="list-group">
+      {{#each burgers}}
+        {{#if devoured}}
+          {{> burgers/burger-delete devoured=false}}
+        {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+

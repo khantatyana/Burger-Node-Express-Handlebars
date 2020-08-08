@@ -4,25 +4,32 @@
     text-align: center;
 }
 .grid-container {
-  display: grid;
+  display: flex;
 }
-/* li {
-    padding: 5px;
-    margin: 5px;
-    background: #faebd7;
-  }
+.list-group-item {
+  color: black;
+}
+li {
+  padding: 5px;
+  margin: 5px;
+  background: #faebd7;
+}
   
-  .label {
-    font-weight: bold;
-  }
+.label {
+  font-weight: bold;
+}
   
-  .create-update-form {
-    padding: 5px;
-    margin: 5px;
-    background: aqua;
-  } */
+.create-form {
+  padding: 5px;
+  margin: 5px;
+  background: rgb(71, 85, 85);
+}
   
-  .form-group {
-    margin-bottom: 5px;
-  }
+#burg {
+  width: 100px;
+  
+}
+img {
+  align-items: center;
+}
   
