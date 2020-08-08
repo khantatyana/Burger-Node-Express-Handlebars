@@ -2,7 +2,7 @@ $(document).ready(function() {
   $(".change-devour").on("click", function(event) {
     event.preventDefault();
     var id = $(this).data("id");
-    var devourIt = $(this).data("devoured");
+    var devourIt = $(this).data("devour");
 
     var eatIt = {
       devoured: devourIt
@@ -42,14 +42,16 @@ $(document).ready(function() {
   });
 
   $(".delete-devour").on("click", function(event) {
+    event.preventDefault();
     var id = $(this).data("id");
+    console.log(id);
 
     // Send the DELETE request.
     $.ajax("/api/burgers/" + id, {
       type: "DELETE"
     }).then(
       function() {
-        console.log("deleted burger", id);
+        console.log("deleted burger ", id);
         // Reload the page to get the updated list
         location.reload();
       }
