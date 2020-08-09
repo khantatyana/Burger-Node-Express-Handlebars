@@ -1,16 +1,19 @@
-<h1>Eat-Da-Burger!</h1>
-<img src="/assets/burger.jpeg" alt="burger" width="200">
+<h1>Eat-Da-Burger!
+  <img src="/assets/burger.jpeg" alt="burger" width="200">
+</h1>
+
 
 <form class="create-form">
 
   <div class="form-group">
     <label for="burger">Burger Name:</label>
-    <input type="text" id="burg" name="burger_name">
+    {{!-- <input type="text" id="burg" name="burger_name"> --}}
+    <textarea name="burger_name" id="burg" rows="5" placeholder="Enter a burger you want to eat. 
+    Click the Add Burger button."></textarea>
   </div>
 
   <button type="submit">Add Burger</button>
   <br><br><br>
-  <p>Enter a burger you want to eat. Click the Add Burger button.</p>
 </form>
 
 <div class="grid-container">

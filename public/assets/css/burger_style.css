@@ -1,5 +1,5 @@
 * {
-    background-color: aquamarine;
+    background-color: rgb(165, 217, 238);
     font-size: medium;
     text-align: center;
 }
@@ -12,7 +12,8 @@
 li {
   padding: 5px;
   margin: 5px;
-  background: #faebd7;
+  transition: 0.5s;
+  color: transparent;
 }
   
 .label {
@@ -21,15 +22,15 @@ li {
   
 .create-form {
   padding: 5px;
-  margin: 5px;
-  background: rgb(71, 85, 85);
+  background: rgb(149, 163, 163);
 }
   
 #burg {
-  width: 100px;
-  
+  width: 300px;
 }
 img {
-  align-items: center;
+  text-align: center;
 }
-  
+.fa-spin-hover:hover {
+  animation: fa-spin 2s infinite linear;
+}
