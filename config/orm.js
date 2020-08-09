@@ -23,12 +23,10 @@ function objToSql(ob) {
 var orm = {
   selectAll: function (tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
-    console.log("Inside orm.js " + queryString);
     connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
-      console.log("inside orm.js result is " + result);
       cb(result);
     });
   },
@@ -65,7 +63,7 @@ var orm = {
   },
   delete: function (table, condition, cb) {
     var queryString = "DELETE FROM " + table;
-    queryString += "WHERE ";
+    queryString += " WHERE ";
     queryString += condition;
     console.log(queryString);
     connection.query(queryString, function (err, result) {
