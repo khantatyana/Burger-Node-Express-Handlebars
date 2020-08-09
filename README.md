@@ -1,5 +1,7 @@
 # Node-Express-Handlebars - Eat-Da-Burger! 
 
+[![Build Status](https://img.shields.io/badge/Project-Node--Handlebars-brightgreen)](https://img.shields.io/badge/Project-Node--Handlebars-brightgreen)
+
 [Heroku deployed page is here](https://eat-da-burger-hw13-node-expres.herokuapp.com/)
 
 ### Description
